@@ -1,6 +1,12 @@
 from microbit import *
 import radio
 
+
+'''
+RADIO CONFIGURATION
+IMPORTANT: change the channel/address/group for each controller &
+           ensure the channel/address/group match the robot
+'''
 radio.config(channel=12)
 radio.config(address=0x12073120)
 radio.config(group=31)
@@ -9,6 +15,10 @@ on = False
 
 display.show(Image.NO)
 
+
+'''
+BUTTON INPUTS
+'''
 buttons = {2: 'A',
            516: 'B',
            684: 'C',
@@ -23,6 +33,10 @@ def button_press():
             if number in buttons:
                 return buttons[number]
 
+
+'''
+JOYSTICK CONVERSION
+'''
 def drive():
     x = (pin0.read_analog()) - 511
     y = (pin1.read_analog()) - 511
@@ -30,6 +44,10 @@ def drive():
     right = y - x
     return str(left) + " " + str(right)
 
+
+'''
+MAIN LOOP
+'''
 while True:
     button = button_press()
     if button == 'F':

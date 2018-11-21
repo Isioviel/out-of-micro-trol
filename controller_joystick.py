@@ -18,6 +18,7 @@ display.show(Image.NO)
 
 '''
 BUTTON INPUTS
+joystick:bit
 '''
 buttons = {2: 'A',
            516: 'B',
@@ -36,6 +37,7 @@ def button_press():
 
 '''
 JOYSTICK CONVERSION
+joystick:bit
 '''
 def drive():
     x = (pin0.read_analog()) - 511

@@ -1,6 +1,7 @@
 from microbit import *
 import radio
-
+import neopixel
+import random
 
 '''
 RADIO CONFIGURATION
@@ -54,7 +55,7 @@ http://www.multiwingspan.co.uk/micro.php?page=botline
 '''
 LF = pin14
 LB = pin13
-RF = pin12
+RF = pin16
 RB = pin15
 
 # 1023 turns the motors off; 0 turns them on at full speed
@@ -64,12 +65,12 @@ def stop():
     RF.write_analog(1023)
     RB.write_analog(1023)
     display.show(Image.HAPPY)
-    exp(smile)
+    exp(angry)
 
 # Inputs between 0-1023 to control both motors
 def drive(L, R):
     display.show(Image.ANGRY)
-    exp(angry)
+    #exp(angry)
     # Below controls the left wheel: forward, backward, stop at given speed
     if L > 0 and L <= 1023:
         LF.write_analog(abs(L-1023))  # go forwards at speed given
@@ -104,3 +105,4 @@ while True:
         else:
             message = message.split()
             drive(int(message[0]), int(message[1]))
+            #exp(angry)

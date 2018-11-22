@@ -40,10 +40,10 @@ JOYSTICK CONVERSION
 joystick:bit
 '''
 def drive():
-    x = (pin0.read_analog()) - 511
-    y = (pin1.read_analog()) - 511
-    left = y + x
-    right = y - x
+    x = (pin0.read_analog()) - 519          # stick centre returns zero
+    y = (pin1.read_analog()) - 524          # stick centre returns zero
+    left = int((y + x) * 1.2)               # adjusts so that highest reading is +/- 1023
+    right = int((y - x) * 1.2)
     return str(left) + " " + str(right)
 
 

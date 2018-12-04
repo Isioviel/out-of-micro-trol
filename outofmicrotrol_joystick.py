@@ -97,6 +97,7 @@ def drive(L, R):
 MAIN LOOP
 Receiving messages from controller_joystick.py
 '''
+stop()
 while True:
     message = radio.receive()
     if message is not None:
@@ -104,5 +105,5 @@ while True:
             stop()
         else:
             message = message.split()
-            drive(int(message[0]), int(message[1]))
+            drive(-int(message[0]), -int(message[1]))
             #exp(angry)

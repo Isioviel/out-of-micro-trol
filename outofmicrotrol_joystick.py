@@ -11,6 +11,7 @@ IMPORTANT: change the channel/address/group for each robot &
 radio.config(channel=12)
 radio.config(address=0x12073120)
 radio.config(group=31)
+radio.config(queue=1)
 
 radio.on()
 
@@ -64,13 +65,9 @@ def stop():
     LB.write_analog(1023)
     RF.write_analog(1023)
     RB.write_analog(1023)
-    display.show(Image.HAPPY)
-    exp(angry)
 
 # Inputs between 0-1023 to control both motors
 def drive(L, R):
-    display.show(Image.ANGRY)
-    #exp(angry)
     # Below controls the left wheel: forward, backward, stop at given speed
     if L > 0 and L <= 1023:
         LF.write_analog(abs(L-1023))  # go forwards at speed given
@@ -98,12 +95,26 @@ MAIN LOOP
 Receiving messages from controller_joystick.py
 '''
 stop()
+display.show(Image.HAPPY)
+exp(smile)
+
 while True:
     message = radio.receive()
     if message is not None:
         if message == 'stop':
             stop()
+        elif message == 'angry':
+            exp(angry)
+            display.show(Image.ANGRY)
+        elif message == 'frown':
+            exp(frown)
+            display.show(Image.SAD)
+        elif message == 'smile':
+            exp(smile)
+            display.show(Image.HAPPY)
+        elif message == 'line':
+            exp(line)
+            display.show(Image.SURPRISED)
         else:
             message = message.split()
             drive(-int(message[0]), -int(message[1]))
-            #exp(angry)

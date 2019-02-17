@@ -55,6 +55,7 @@ while True:
         radio.on()
         display.show(Image.YES)
         on = True
+
     while on is True:
         button = button_press()
         if button == 'E':
@@ -65,19 +66,15 @@ while True:
         elif button == 'A':
             radio.send('angry')
             sleep(100)
-            button = False
         elif button == 'B':
             radio.send('frown')
             sleep(100)
-            button = False
         elif button == 'C':
             radio.send('smile')
             sleep(100)
-            button = False
         elif button == 'D':
             radio.send('line')
             sleep(100)
-            button = False
         else:
             radio.send(drive())
             sleep(10)

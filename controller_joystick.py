@@ -11,10 +11,6 @@ radio.config(channel=12)
 radio.config(address=0x12073120)
 radio.config(group=31)
 
-on = False
-
-display.show(Image.NO)
-
 
 '''
 BUTTON INPUTS
@@ -50,6 +46,9 @@ def drive():
 '''
 MAIN LOOP
 '''
+on = False
+display.show(Image.NO)
+
 while True:
     button = button_press()
     if button == 'F':
@@ -63,6 +62,22 @@ while True:
             radio.off()
             display.show(Image.NO)
             on = False
+        elif button == 'A':
+            radio.send('angry')
+            sleep(100)
+            button = False
+        elif button == 'B':
+            radio.send('frown')
+            sleep(100)
+            button = False
+        elif button == 'C':
+            radio.send('smile')
+            sleep(100)
+            button = False
+        elif button == 'D':
+            radio.send('line')
+            sleep(100)
+            button = False
         else:
             radio.send(drive())
             sleep(10)

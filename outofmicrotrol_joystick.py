@@ -56,7 +56,7 @@ http://www.multiwingspan.co.uk/micro.php?page=botline
 '''
 LF = pin14
 LB = pin13
-RF = pin16
+RF = pin12
 RB = pin15
 
 # 1023 turns the motors off; 0 turns them on at full speed

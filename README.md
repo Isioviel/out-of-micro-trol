@@ -1,5 +1,5 @@
 # out-of-micro-trol
-Code for my BBC micro:bit controlled antweight robot, out-of-micro:trol
+Code for my BBC micro:bit controlled antweight robots: out-of-micro:trol & micro:bite
 
 The robot motor control is based on work I did for @ScienceOxford
 

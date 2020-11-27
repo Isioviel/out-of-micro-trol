@@ -115,6 +115,9 @@ while True:
     if message is not None:
         if message == 'stop':
             stop()
+            exp(frown)
+            audio.play(Sound.SAD, wait=False)
+            display.show(Image.SAD)
         elif message == 'angry':
             exp(angry)
             display.show(Image.ANGRY)
@@ -130,10 +133,6 @@ while True:
         elif message == 'hello':
             exp(smile)
             hello()
-        elif message == 'bye':
-            exp(frown)
-            audio.play(Sound.SAD, wait=False)
-            display.show(Image.SAD)
         else:
             message = message.split()
             drive(-int(message[0]), -int(message[1]))
